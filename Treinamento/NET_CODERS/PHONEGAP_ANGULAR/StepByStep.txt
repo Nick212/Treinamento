@@ -1,0 +1,46 @@
+***********************************************************************
+PHONEGAP_ANGULAR
+***********************************************************************
+
+Instalar phonegap
+npm install -g phonegap
+
+Instalar cordova
+npm install -g cordova
+-----------------------------------------------------------------------
+/verificar versão ---- 
+$ phonegap -v
+----Melhores versões de phonegap   (3.7 ou 4.2 a )
+
+Cordova -> Motor de compilação, que roda dentro do phonegap
+
+-----------------------------------------------------------------------
+Compilar phonegap na nuvem ou local
+
+
+***********************************************************************
+Criando projeto phonegap
+
+phonegap create nome_do_projeto (Padrão -- Não pode ter Letra maiuscula, nem em tela e nem no projeto).
+
+***********************************************************************
+Para acessar os recursos do celular, Ex, botões volume, deve usar plugins
+***********************************************************************
+Pasta Hooks-> Start e End do app, como se fosse o App_start
+***********************************************************************
+Material Designer
+https://material.angularjs.org/latest/#/
+Ionic Material Designer
+http://materializecss.com/
+***********************************************************************
+Instalando Material Design
+npm install angular-material
+***********************************************************************
+Biblioteca Icones
+
+https://klarsys.github.io/angular-material-icons/
+***********************************************************************
+para buildar deve estar na pasta do projeto e digitar o comando
+phonegap serve
+
+***********************************************************************
