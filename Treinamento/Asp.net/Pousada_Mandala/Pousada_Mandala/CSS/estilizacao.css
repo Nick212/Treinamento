@@ -1,0 +1,41 @@
+﻿body {
+}
+#form1 {
+    
+}
+
+#cadastroHospede{
+    width:51%;
+    height:50%;
+    margin-left:25%;
+    margin-top:5%;
+
+}
+
+#ladoEsquerdo{
+    width:48%;
+    height:25%;
+    float:left;
+}
+
+#ladoDireito{
+    width:50%;
+    height:25%;
+    float:right;
+    margin-left:2%;
+    
+}
+
+#btnConsultar{
+    float:right;
+}
+
+#ContentPlaceHolder1_txtCpf, ContentPlaceHolder1_Cpf{
+   
+    float:left;
+}
+
+.form-control{
+    width:100%;
+}
+

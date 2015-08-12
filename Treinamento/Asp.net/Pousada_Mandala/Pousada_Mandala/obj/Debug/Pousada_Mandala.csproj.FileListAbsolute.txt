@@ -1,0 +1,6 @@
+C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\bin\Pousada_Mandala.dll.config
+C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\bin\Pousada_Mandala.dll
+C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\bin\Pousada_Mandala.pdb
+C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.dll
+C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.pdb
+C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.csprojResolveAssemblyReference.cache
