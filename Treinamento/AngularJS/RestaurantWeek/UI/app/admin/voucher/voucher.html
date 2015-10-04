@@ -1,0 +1,190 @@
+﻿<section class="wrapper">
+    <!-- page start-->
+    <div class="row" ng-show="boxPesquisa.show">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Dados para validação
+                </header>
+                <div class="panel-body">
+                    <!--Error de Campos-->
+                    <div class="alert alert-danger alert-block fade in" ng-show="erro">
+                        <button data-dismiss="alert" class="close close-sm" ng-click="limpar()" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            Erro!
+                        </h4>
+                        <p> Ocorreu um erro desconhecido.</p>
+                        <p> Por favor, entre em contato com a Central de Atendimento Dotz para mais informações (4007-1339 ou 0800-601-1339).</p>
+                    </div>
+                    <form role="form" id="voucherForm" class="form-horizontal  bucket-form" data-parsley-validate>
+                        <div class="form-group ">
+                            <label class="col-md-3 control-label">Restaurante:</label>
+                            <div class="col-md-8">
+                                <select required class="form-control round-input" ng-model="voucher.fornecedor">
+                                    <option value="">Selecione..</option>
+                                    <option value="{{rest.wmsRestauranteId}}" ng-repeat="rest in restaurants | orderBy:'nomeFantasia'">
+                                        {{rest.nomeFantasia}}
+                                    </option>
+                                </select>
+                                <label ng-show="fornecedor.valid" class="error text-danger">Este campo é obrigatório.</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-md-3 control-label">Número do Pedido</label>
+                            <div class="col-md-8">
+                                <input type="text" required="required" placeholder="" class="form-control round-input" ng-model="voucher.pedido" only-digits>
+                                <label ng-show="pedido.valid" class="error text-danger">Este campo é obrigatório.</label>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-md-3 control-label">Código Vale Troca:</label>
+                            <div class="col-md-3">
+                                <input type="text" required placeholder="" class="form-control round-input" ng-model="voucher.codigo">
+                                <label ng-show="codigo.valid" class="error text-danger">Este campo é obrigatório.</label>
+                            </div>
+                            <label class="col-md-2 control-label">Capturar QRCode</label>
+                            <div class="col-md-4">
+                                <a href="">
+                                    <i class="fa fa-qrcode fa-3x"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-6">
+                                <button class="btn btn-danger" type="button" ng-click="limpar()">Limpar</button>
+                                <button class="btn btn-primary" type="button" ng-click="consultar()"> Consultar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row" ng-show="boxSucesso.show">
+        <div class=" col-md-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Operação realizada com sucesso
+                </header>
+                <div class="panel-body">
+                    <div class="alert alert-block fade in">
+                        <h4>
+                            <i class="glyphicon glyphicon-ok"></i>
+                            O vale troca  {{codigoValeTroca}} foi utilizado com sucesso
+                        </h4>
+                        <p>
+                            Esse vale troca não estará mais disponível para utilização posterior.
+                        </p>
+                        <p>Central de Atendimento Dotz (4007-1339 ou 0800-601-1339).</p>
+                        <br />
+                        <br />
+                        <button class="btn btn-primary" type="button" ng-click="finalizar()">
+                            Finalizar
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row" ng-show="boxResultadoPesquisa.show" ng-animate="'animate'">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Resultado da pesquisa
+                </header>
+                <div class="panel-body">
+                    <div ng-show="boxNaoEncontrado.show">
+                        <div class="alert alert-danger alert-block fade in">
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                Vale troca {{codigoValeTroca}} não encontrado
+                            </h4>
+                            <p>Pesquise outro vale troca que deseja utilizar</p>
+                            <p>Central de Atendimento Dotz (4007-1339 ou 0800-601-1339).</p>
+                        </div>
+                        <button class="btn btn-primary" type="button" ng-click="finalizar()">
+                            Voltar
+                        </button>
+                    </div>
+                    <div ng-show="boxUtilizado.show">
+                        <div class="alert alert-danger alert-block fade in">
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                O vale troca {{codigoValeTroca}} já foi utilizado.
+                            </h4>
+                            <p>Pesquise outro vale troca que deseja utilizar</p>
+                            <p>Central de Atendimento Dotz (4007-1339 ou 0800-601-1339).</p>
+                        </div>
+                        <button class="btn btn-primary" type="button" ng-click="finalizar()">
+                            Voltar
+                        </button>
+                    </div>
+                    <div ng-show="boxNaoPertence.show">
+                        <div class="alert alert-danger alert-block fade in">
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                O vale troca {{codigoValeTroca}} não pertence a esse restaurante
+                            </h4>
+                            <p>Pesquise outro vale troca que deseja utilizar</p>
+                            <p>Central de Atendimento Dotz (4007-1339 ou 0800-601-1339).</p>
+                        </div>
+                        <button class="btn btn-primary" type="button" ng-click="finalizar()">
+                            Voltar
+                        </button>
+                    </div>
+                    <div ng-show="boxVencido.show">
+                        <div class="alert alert-danger alert-block fade in">
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                O vale troca {{codigoValeTroca}} está vencido e não pode mais ser utilizado
+                            </h4>
+                            <p>Pesquise outro vale troca que deseja utilizar</p>
+                            <p>Central de Atendimento Dotz (4007-1339 ou 0800-601-1339).</p>
+
+                        </div>
+                        <button class="btn btn-primary" type="button" ng-click="finalizar()">
+                            Voltar
+                        </button>
+                    </div>
+                    <div ng-show="boxIndisponivel.show">
+                        <div class="alert alert-danger alert-block fade in">
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                O vale troca {{codigoValeTroca}} está indisponível e não pode mais ser utilizado
+                            </h4>
+                            <p>Pesquise outro vale troca que deseja utilizar</p>
+                            <p>Central de Atendimento Dotz (4007-1339 ou 0800-601-1339).</p>
+                        </div>
+                        <button class="btn btn-primary" type="button" ng-click="finalizar()">
+                            Voltar
+                        </button>
+                    </div>
+                    <div class="alert alert-success alert-block fade in" ng-show="boxEncontrado.show">
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            Vale Troca {{codigoValeTroca}} encontrado.
+                        </h4>
+                        <p>Se você quer utilizar esse vale troca clique em Validar Vale Troca, em caso negativo clique em cancelar.</p>
+                        <p>Central de Atendimento Dotz (4007-1339 ou 0800-601-1339).</p>
+                    </div>
+                    <!--User Information-->
+                    <div class="col-md-12" ng-show="boxProduto.show">
+                        <h5> <strong> Produto: </strong>{{produtoNome}}</h5>
+                        <h5> <strong> Data de Vencimento: </strong>{{dataVencimento | date: 'dd/MM/yyyy'}}</h5>
+                        <h5> <strong> Adquirido por: </strong>{{adquirenteNome}}</h5>
+                        <br />
+                        <br />
+                        <button class="btn btn-danger" type="button" ng-click="cancelar()">Cancelar</button>
+                        <button class="btn btn-primary" type="button" ng-click="validarVoucher()">Validar Vale Troca</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- page end-->
+</section>
+<!--main content end-->
