@@ -4,3 +4,9 @@ C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pous
 C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.dll
 C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.pdb
 C:\Users\nicolas.carvalho\Documents\Visual Studio 2013\Projects\ASPNET-MVC5\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.csprojResolveAssemblyReference.cache
+E:\GitHub\Treinamento\Treinamento\Asp.net\Pousada_Mandala\Pousada_Mandala\bin\Pousada_Mandala.dll.config
+E:\GitHub\Treinamento\Treinamento\Asp.net\Pousada_Mandala\Pousada_Mandala\bin\Pousada_Mandala.dll
+E:\GitHub\Treinamento\Treinamento\Asp.net\Pousada_Mandala\Pousada_Mandala\bin\Pousada_Mandala.pdb
+E:\GitHub\Treinamento\Treinamento\Asp.net\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.csprojResolveAssemblyReference.cache
+E:\GitHub\Treinamento\Treinamento\Asp.net\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.dll
+E:\GitHub\Treinamento\Treinamento\Asp.net\Pousada_Mandala\Pousada_Mandala\obj\Debug\Pousada_Mandala.pdb
