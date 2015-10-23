@@ -39,10 +39,6 @@ document.getElementById('img')[0].onclick = function(){
 }
 
 
-
-
-
-
 function verificaStatus(poltrona){
 	//Sintaxe Literal
 	return function(){
