@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadeMeuMedico", "CadeMeuMedico\CadeMeuMedico.csproj", "{78EB25A6-0A9F-4980-BCB1-E509261681E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadeMeuMedico.Tests", "CadeMeuMedico.Tests\CadeMeuMedico.Tests.csproj", "{319D0224-AA7C-413A-9527-F5F1EB0A9BFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78EB25A6-0A9F-4980-BCB1-E509261681E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78EB25A6-0A9F-4980-BCB1-E509261681E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78EB25A6-0A9F-4980-BCB1-E509261681E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78EB25A6-0A9F-4980-BCB1-E509261681E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319D0224-AA7C-413A-9527-F5F1EB0A9BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319D0224-AA7C-413A-9527-F5F1EB0A9BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319D0224-AA7C-413A-9527-F5F1EB0A9BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319D0224-AA7C-413A-9527-F5F1EB0A9BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

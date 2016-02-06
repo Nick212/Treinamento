@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CadeMeuMedicoBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CIDADES">
+    <Key>
+      <PropertyRef Name="ID_CIDADE" />
+    </Key>
+    <Property Name="ID_CIDADE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_ESTADO" Type="smallint" Nullable="false" />
+    <Property Name="CIDADE" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESPECIALIDADES">
+    <Key>
+      <PropertyRef Name="ID_ESPECIALIDADE" />
+    </Key>
+    <Property Name="ID_ESPECIALIDADE" Type="smallint" Nullable="false" />
+    <Property Name="ESPECIALIDADE" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="ESTADOS">
+    <Key>
+      <PropertyRef Name="ID_ESTADO" />
+    </Key>
+    <Property Name="ID_ESTADO" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PAIS" Type="int" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SIGLA" Type="varchar" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEDICOS">
+    <Key>
+      <PropertyRef Name="ID_MEDICO" />
+    </Key>
+    <Property Name="ID_MEDICO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_ESPECIALIDADE" Type="smallint" Nullable="false" />
+    <Property Name="CRM" Type="varchar" MaxLength="30" />
+    <Property Name="NOME" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="ENDERECO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BAIRRO" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="ID_CIDADE" Type="int" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ATENDE_POR_CONVENIO" Type="bit" />
+    <Property Name="TEM_CLINICA" Type="bit" />
+    <Property Name="WEB_SITE_BLOG" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="MEDICOS_POR_ESPECIALIDADES">
+    <Key>
+      <PropertyRef Name="ID_MEDIDO" />
+      <PropertyRef Name="ID_ESPECIALIDADE" />
+    </Key>
+    <Property Name="ID_MEDIDO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_ESPECIALIDADE" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAISES">
+    <Key>
+      <PropertyRef Name="ID_PAIS" />
+    </Key>
+    <Property Name="ID_PAIS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PAIS" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_USUARIO" />
+    </Key>
+    <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SENHA" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ID_CIDADE">
+    <End Role="CIDADES" Type="Self.CIDADES" Multiplicity="1" />
+    <End Role="MEDICOS" Type="Self.MEDICOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CIDADES">
+        <PropertyRef Name="ID_CIDADE" />
+      </Principal>
+      <Dependent Role="MEDICOS">
+        <PropertyRef Name="ID_CIDADE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_ESPECIALIDADE">
+    <End Role="ESPECIALIDADES" Type="Self.ESPECIALIDADES" Multiplicity="1" />
+    <End Role="MEDICOS_POR_ESPECIALIDADES" Type="Self.MEDICOS_POR_ESPECIALIDADES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIALIDADES">
+        <PropertyRef Name="ID_ESPECIALIDADE" />
+      </Principal>
+      <Dependent Role="MEDICOS_POR_ESPECIALIDADES">
+        <PropertyRef Name="ID_ESPECIALIDADE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_ESTADO">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="CIDADES" Type="Self.CIDADES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_ESTADO" />
+      </Principal>
+      <Dependent Role="CIDADES">
+        <PropertyRef Name="ID_ESTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_MEDICO">
+    <End Role="MEDICOS" Type="Self.MEDICOS" Multiplicity="1" />
+    <End Role="MEDICOS_POR_ESPECIALIDADES" Type="Self.MEDICOS_POR_ESPECIALIDADES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICOS">
+        <PropertyRef Name="ID_MEDICO" />
+      </Principal>
+      <Dependent Role="MEDICOS_POR_ESPECIALIDADES">
+        <PropertyRef Name="ID_MEDIDO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_PAIS">
+    <End Role="PAISES" Type="Self.PAISES" Multiplicity="1" />
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAISES">
+        <PropertyRef Name="ID_PAIS" />
+      </Principal>
+      <Dependent Role="ESTADOS">
+        <PropertyRef Name="ID_PAIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CadeMeuMedicoBDModelStoreContainer">
+    <EntitySet Name="CIDADES" EntityType="Self.CIDADES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESPECIALIDADES" EntityType="Self.ESPECIALIDADES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADOS" EntityType="Self.ESTADOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEDICOS" EntityType="Self.MEDICOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEDICOS_POR_ESPECIALIDADES" EntityType="Self.MEDICOS_POR_ESPECIALIDADES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAISES" EntityType="Self.PAISES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ID_CIDADE" Association="Self.FK_ID_CIDADE">
+      <End Role="CIDADES" EntitySet="CIDADES" />
+      <End Role="MEDICOS" EntitySet="MEDICOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_ESPECIALIDADE" Association="Self.FK_ID_ESPECIALIDADE">
+      <End Role="ESPECIALIDADES" EntitySet="ESPECIALIDADES" />
+      <End Role="MEDICOS_POR_ESPECIALIDADES" EntitySet="MEDICOS_POR_ESPECIALIDADES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_ESTADO" Association="Self.FK_ID_ESTADO">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="CIDADES" EntitySet="CIDADES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_MEDICO" Association="Self.FK_ID_MEDICO">
+      <End Role="MEDICOS" EntitySet="MEDICOS" />
+      <End Role="MEDICOS_POR_ESPECIALIDADES" EntitySet="MEDICOS_POR_ESPECIALIDADES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_PAIS" Association="Self.FK_ID_PAIS">
+      <End Role="PAISES" EntitySet="PAISES" />
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
