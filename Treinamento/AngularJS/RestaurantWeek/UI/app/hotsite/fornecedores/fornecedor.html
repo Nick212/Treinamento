@@ -1,0 +1,288 @@
+﻿ <!--CADASTRO dadosFornecedor-->
+<!-- START PLAN TABLE-->
+<section id="contact" class="contact" style="margin-top:1px;" ng-show="true">
+    <section class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div id="wizard">
+                                
+                                <form id="formCadastroFornecedor" class="form-horizontal" validate-form>
+                                    <div class="alert alert-danger alert-block fade in" ng-hide="erro">
+                                        <button data-dismiss="alert" class="close close-sm" ng-click="limpar()" type="button">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        <h4>
+                                            <i class="icon-ok-sign"></i>
+                                            Erro!
+                                        </h4>
+                                        <p> Ocorreu um erro desconhecido.</p>
+                                        <p> Por favor, entre em contato com a Central de Atendimento Dotz para mais informações (4007-1339 ou 0800-601-1339).</p>
+                                    </div>
+                                    
+                                    <div class="alert alert-danger alert-block fade in" ng-hide="erroSenha">
+                                        <button data-dismiss="alert" class="close close-sm" ng-click="limpar()" type="button">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        <h4>
+                                            <i class="icon-ok-sign"></i>
+                                            Erro!
+                                        </h4>
+                                        <p> Ocorreu um erro</p>
+                                        <p> Sua Senha deve conter apenas 6 dígitos numéricos.</p>
+                                    </div>
+                                    <div class="alert alert-success " ng-hide="cadastrado">
+                                        <button data-dismiss="alert" class="close close-sm" ng-click="limpar()" type="button">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        <h4>
+                                            <i class="icon-ok-sign"></i>
+                                            Sucesso!
+                                        </h4>
+                                        <p> Cadastro Efetuado com sucesso.</p>
+                                        <p> Você receberá um e-mail de confirmação dentro de 24 horas, a partir da aprovação da Dotz.</p>
+                                        <p> Em caso de dúvida, entre em contato com a Central de Atendimento Dotz para mais informações (4007-1339 ou 0800-601-1339).</p>
+                                    </div>
+                                    <h2>Dados do Fornecedor</h2>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">CNPJ</label>
+                                        <div class="col-md-8">
+                                            <input id="cnpjFornecedor" type="text" class="form-control round-input" ui-br-cnpj-mask ng-model="dadosFornecedor.cnpj" autofocus required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Razão Social</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFornecedor.razaoSocial" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Nome Fantasia</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFornecedor.nomeFantasia" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Inscrição Estadual</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFornecedor.inscricaoEstadual" placeholder="" required>
+                                        </div>
+                                    </div>
+
+                                    <!--<div class="form-group">
+                                        <label class="col-md-3 control-label">Upload de Documento</label>
+                                        <div class="col-md-8">
+                                            <input type="file" ng-model="dadosFornecedor.uploadDoc" class="form-control round-input">
+                                            <p class="help-block">Documento do Fornecedor ("PDF, JPEG, PNG")</p>
+                                        </div>
+                                    </div>-->
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">CEP</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control round-input" ui-br-cep-mask ng-model="dadosFornecedor.cep" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-pull-12 form-group">
+                                        <label class="col-md-3 control-label">Endereço</label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFornecedor.endereco" placeholder="" required>
+                                        </div>
+                                        <label class="col-md-1 control-label">nº</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control round-input"  ng-model="dadosFornecedor.numeroEnd" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Bairro</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFornecedor.bairro" placeholder="" required>
+                                        </div>
+
+                                        <label class="col-md-1 control-label">Complem. </label>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFornecedor.complemento" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class= "col-md-3 control-label">Estado</label>
+                                        <div class="col-md-3">
+                                            <select required class="form-control round-input" ng-model="dadosFornecedor.estado" ng-change="recuperarCidades({{estado.estadoId}})" placeholder="--Selecione--" >
+                                                <option value="">Selecione..</option>
+                                                <option value="{{estado.estadoId}}" ng-repeat="estado in estados | orderBy:'nome'">
+                                                    {{estado.nome}}
+                                                </option>
+                                            </select>
+
+                                        </div>
+                                        <label class="col-md-1 control-label">Cidade</label>
+                                        <div class="col-md-4">
+                                            <select type="text" class="form-control round-input" ng-model="dadosFornecedor.cidade" placeholder="--Selecione--" required>
+                                                <option value="">Selecione..</option>
+                                                <option value="{{cidade.webCidadeId}}" ng-repeat="cidade in cidades | orderBy:'nome'">
+                                                    {{cidade.cidadeNome}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <h2>Endereço de Cobrança</h2>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">CEP</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control round-input" ui-br-cep-mask ng-model="enderecoCobranca.cep" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-pull-12 form-group">
+                                        <label class="col-md-3 control-label">Endereço</label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control round-input" ng-model="enderecoCobranca.endereco" placeholder="" required>
+                                        </div>
+                                        <label class="col-md-1 control-label">nº</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control round-input"  ng-model="enderecoCobranca.numeroEnd" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Bairro</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control round-input" ng-model="enderecoCobranca.bairro" placeholder="" required>
+                                        </div>
+
+                                        <label class="col-md-1 control-label">Complem.</label>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control round-input" ng-model="enderecoCobranca.complemento" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Estado</label>
+                                        <div class="col-md-3">
+                                            <select required class="form-control round-input" ng-model="enderecoCobranca.estado" ng-change="recuperarCidades2({{estado.estadoId}})" placeholder="--Selecione--">
+                                                <option value="">Selecione..</option>
+                                                <option value="{{est.estadoId}}" ng-repeat="est in enderecoCobrancaEstado | orderBy:'nome'">
+                                                    {{est.nome}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <label class="col-md-1 control-label">Cidade</label>
+                                        <div class="col-md-4">
+                                            <select type="text" class="form-control round-input" ng-model="enderecoCobranca.cidade" placeholder="--Selecione--" required>
+                                                <option value="">Selecione..</option>
+                                                <option value="{{cid.webCidadeId}}" ng-repeat="cid in enderecoCobrancaCidade | orderBy:'nome'">
+                                                    {{cid.cidadeNome}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <h2>Dados Financeiros</h2>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Nome</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFinanceiros.nome" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-pull-12 form-group">
+                                        <label class="col-md-3 control-label">Telefone</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control round-input" ui-br-phone-number ng-model="dadosFinanceiros.telefone" placeholder="" required>
+                                        </div>
+
+                                        <label class="col-md-1 control-label">E-mail</label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFinanceiros.email" placeholder="" data-parsley-type="email" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-pull-12 form-group">
+                                        <label class="col-md-3 control-label">Banco</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFinanceiros.banco" placeholder="" required>
+                                        </div>
+
+                                        <label class="col-md-1 control-label">Agência</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFinanceiros.agencia" placeholder="" required>
+                                        </div>
+
+                                        <label class="col-md-1 control-label">Conta</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control round-input" ng-model="dadosFinanceiros.conta" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <br />
+
+
+                                    <h2>Dados Contato Comercial</h2>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Nome</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control round-input" ng-model="dadosComercial.nome" placeholder="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-pull-12 form-group">
+                                        <label class="col-md-3 control-label">Telefone</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control round-input" ui-br-phone-number ng-model="dadosComercial.telefone" placeholder="" required>
+                                        </div>
+
+                                        <label class="col-md-1 control-label">E-mail</label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control round-input" ng-model="dadosComercial.email" placeholder="" data-parsley-type="email" required>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <h2>O Restaurante Servirá?</h2>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" value="1" class="checkbox-inline" ng-model="tipoTroca.almoco" required > Almoço
+                                            <input type="checkbox" value="1" class="checkbox-inline" ng-model="tipoTroca.janta" required> Jantar
+                                        </div>
+                                    </div>
+                                    <br/>
+
+                                    <h2>Dados para Login</h2>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Login</label>
+                                        <div class="col-md-8">
+                                            <label class="col-md-3 control-labelt">{{dadosFornecedor.cnpj}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Senha</label>
+                                        <div class="col-md-8">
+                                            <input type="password" class="form-control round-input" ng-model="login.senha" placeholder="Senha deve conter apenas 6 digitos numéricos..." required/>
+                                        </div>
+                                    </div>
+
+                                    <br /><br /><br />
+                                    <div class="form-group">
+                                        <button class="btn btn-danger" type="button" ng-click="limparDados()">Limpar</button>
+                                        <button class="btn btn-theme" type="button" ng-click="cadastrarFornecedor()">Cadastrar</button>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+    </section>
+    
+</section>
+    <!--FIM CADASTRO dadosFornecedor-->

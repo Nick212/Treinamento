@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="admin">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Fábio Damasceno">
+    <title>Dotz 360</title>
+    <!--Core CSS -->
+    <link href="/assets/admin/theme/bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/admin/theme/js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link href="/assets/admin/theme/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="/assets/hotsite/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/admin/theme/js/jvector-map/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+    <link href="/assets/admin/theme/css/clndr.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/admin/theme/css/jquery.steps.css?1">
+    <!--clock css-->
+    <link href="/assets/admin/theme/js/css3clock/css/style.css" rel="stylesheet">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="/assets/admin/theme/js/morris-chart/morris.css">
+    <!-- Custom styles for this template -->
+    <link href="/assets/admin/theme/css/style.css" rel="stylesheet">
+    <link href="/assets/admin/theme/css/style-responsive.css" rel="stylesheet" />
+    <link href="../../assets/admin/vendor/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="/assets/admin/theme/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script> 
+    <![endif]-->
+    <!--Theme-->
+    <link id="themes" rel="stylesheet" href="/assets/admin/theme/css/orange-theme.css" type="text/css">
+    <style>
+        .animate-enter,
+        .animate-leave {
+            -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+            -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+            -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+            -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+            transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+            position: relative;
+            display: block;
+        }
+
+            .animate-enter.animate-enter-active,
+            .animate-leave {
+                opacity: 1;
+                top: 0;
+                height: 30px;
+            }
+
+                .animate-leave.animate-leave-active,
+                .animate-enter {
+                    opacity: 0;
+                    top: -50px;
+                    height: 0px;
+                }
+    </style>
+</head>
+<body>
+    <section id="container">
+        <!--header start-->
+        <header ng-controller="headerController" class="header fixed-top clearfix">
+            <span ng-include="template"></span>
+            <div class="top-nav clearfix">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="/index.html">
+                            <span class="username" ng-model="nomeUsuario"></span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <!--<li><a href="#"><i class=" fa fa-suitcase"></i>Meus Dados</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i> Informações</a></li>-->
+                            <li><a href="#/login"><i class="fa fa-key"></i> Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div ng-controller="leftSideBarController" id="sidebar" class="nav-collapse">
+                <span ng-include="template"></span>
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content" ng-view></section>
+        <!--main content end-->
+        <!--right sidebar start-->
+        <div ng-controller="rightSideBarController" class="right-sidebar">
+            <span ng-include="template"></span>
+        </div>
+        <!--right sidebar end-->
+    </section>
+
+    <!--Vendor-->
+    <script src="/assets/admin/vendor/underscore-min.js"></script>
+    <script src="/assets/admin/theme/js/jquery.js"></script>
+
+    <script src="../../assets/admin/vendor/jquery.dataTables.min.js"></script>
+    <script src="../../assets/admin/vendor/dataTables.bootstrap.js"></script>
+    <script src="/assets/admin/theme/js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+    <script src="vendor/jquery.inputmask-3.x/dist/jquery.inputmask.bundle.min.js"></script>
+    <script src="/assets/admin/theme/bs3/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="/assets/admin/theme/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/assets/admin/theme/js/jquery.scrollTo.min.js"></script>
+    <script src="/assets/admin/theme/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js"></script>
+    <script src="/assets/admin/theme/js/jquery.nicescroll.js"></script>
+    <script src="/bower_components/angular-input-masks/angular-input-masks.br.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../../assets/admin/vendor/ngStorage.min.js"></script>
+    <!--App-->
+    <script src="app.js"></script>
+    <!--Directives-->
+
+    <script src="directives/onlyDigitsDirective.js"></script>
+    <!--Services-->
+    <script src="services/apiService.js"></script>
+    <script src="services/validationService.js"></script>
+    <script src="voucher/voucherService.js"></script>
+    <script src="voucher/restaurantService.js"></script>
+    <script src="catalogo/consultaFornecedorService.js"></script>
+    <!--Controllers-->
+    <script src="main/mainController.js"></script>
+    <script src="header/headerController.js"></script>
+    <script src="leftsidebar/leftSideBarController.js"></script>
+    <script src="rightsidebar/rightSideBarController.js"></script>
+    <script src="filters/dotz-currency-filter.js"></script>
+    <!--Catálogo-->
+    <script src="catalogo/consultaFornecedorController.js"></script>
+    <!--Voucher-->
+    <script src="voucher/voucherController.js"></script>
+    <!--Common script init for all pages-->
+    <script src="/assets/admin/theme/js/scripts.js"></script>
+    <!--Script for this page-->
+</body>
+</html>

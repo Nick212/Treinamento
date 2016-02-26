@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="hotsite">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Landing Page Template">
+    <meta name="keywords" content="bootstrap, app, theme">
+    <meta name="author" content="@themicon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Restaurant Week Extranet - Home</title>
+    <!-- PREALOADER (loads asap)-->
+    <link rel="stylesheet" href="/assets/hotsite/vendor/nprogress/nprogress.css">
+    <script src="/assets/hotsite/vendor/nprogress/nprogress.js"></script>
+
+    <!-- FONT-->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic" rel="stylesheet" type="text/css">
+    <!-- ICONS-->
+    <link rel="stylesheet" href="/assets/hotsite/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- VENDOR CSS-->
+    <link rel="stylesheet" href="/assets/hotsite/vendor/animate.css/animate.css">
+    <!-- SITE CSS-->
+    <link href="/assets/hotsite/css/styles-rtl.css" rel="stylesheet" />
+    <link href="/assets/hotsite/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/hotsite/css/styles.css" id="stylescss">
+    <link rel="stylesheet" href="/assets/hotsite/css/theme-a.css">
+    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><script src="js/respond.min.js"></script><![endif]-->
+
+    <link href="bower_components/parsleyjs/src/parsley.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="download" class="download">
+        <div class="container">
+            <h2 data-wow-offset="15" data-wow-duration="1.2s" class="wow fadeInDown animated">Restaurant Week</h2>
+            <div data-wow-offset="15" data-wow-duration="1.2s" class="wow fadeInUp animated">
+                <a href="/#/fornecedor" class="btn btn-lg btn-theme">
+                    <em class="fa fa-pencil-square-o"></em>Quero me Cadastrar
+                </a>
+                <a href="/#/login" class="btn btn-lg btn-theme">
+                    <em class="fa fa-user"></em>Login
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="main" ng-view></section>
+    <!--Core js-->
+    <script src="/assets/hotsite/vendor/jquery/dist/jquery.min.js"></script>
+    <!-- VENDOR SCRIPTS-->
+    <script src="assets/common/js/localStorage.js"></script>
+    <script src="assets/hotsite/vendor/jquery.easing/js/jquery.easing.js"></script>
+    <script src="assets/hotsite/vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="assets/hotsite/vendor/smoothscroll/smoothscroll.js"></script>
+    <script src="assets/hotsite/vendor/owl.carousel/dist/owl.carousel.js"></script>
+    <script src="assets/hotsite/vendor/Nivo-Lightbox/nivo-lightbox.js"></script>
+    <script src="assets/hotsite/vendor/html5shiv/dist/html5shiv.js"></script>
+    <script src="assets/hotsite/vendor/respond/src/respond.js"></script>
+    <script src="assets/hotsite/vendor/retina.js/dist/retina.js"></script>
+    <script src="assets/hotsite/vendor/jquery.scrollTo/jquery.scrollTo.js"></script>
+    <script src="assets/hotsite/vendor/wow/dist/wow.js"></script>
+    <script src="assets/hotsite/vendor/matchMedia/matchMedia.js"></script>
+    <script src="assets/hotsite/vendor/jQuery-One-Page-Nav/jquery.nav.js"></script>
+    <script src="assets/hotsite/vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+    <script src="/assets/admin/validation/bibliotecaJavaScript.js"></script>
+    <!-- VENDOR ANGULAR-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-input-masks/angular-input-masks.js"></script>
+    <script src="bower_components/angular-input-masks/angular-input-masks.br.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/parsleyjs/dist/parsley.min.js"></script>
+    <script src="assets/admin/vendor/ngStorage.min.js"></script>
+
+
+    <script src="/assets/hotsite/js/control.js"></script>
+    <script src="/assets/hotsite/js/scripts.js"></script>
+    <!--APP-->
+    <script src="app/hotsite/app.js"></script>
+    <!-- SERVICES -->
+    <script src="app/hotsite/services/apiService.js"></script>
+    <script src="app/hotsite/login/loginServices.js"></script>
+    <script src="app/hotsite/fornecedores/fornecedorServices.js"></script>
+
+    <!--CONTROLLERS-->
+    <script src="app/hotsite/home/homeController.js"></script>
+    <script src="app/hotsite/fornecedores/fornecedorController.js"></script>
+    <script src="app/hotsite/login/loginController.js"></script>
+    <!-- SITE SCRIPTS-->
+    <script src="/assets/hotsite/js/scripts.js"></script>
+    <script src="app/hotsite/directives/validate-form.js"></script>
+</body>
+</html>

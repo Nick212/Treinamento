@@ -1,0 +1,141 @@
+﻿<style>
+    table {
+        width: 100%;
+    }
+
+    table, td {
+        border: 1px solid black;
+    }
+
+    .gray {
+        background-color: gray;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .alignCenter {
+        text-align: center;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<table>
+    <tr>
+        <td class="alignCenter"><img src="https://dotz.r.worldssl.net/site/imagens/header/logo_dotz.png" /></td>
+        <td colspan="5" class="title" >CBSM Companhia Brasileira de Serviços de Marketing S.A</td>
+    </tr>
+    <tr class="gray">
+        <td colspan="4">Ficha cadastral de fornecedores</td>
+        <td>Data</td>
+        <td>{{model.restaurante.dataCadastro | date : 'dd/MM/yyyy'}}</td>
+    </tr>
+    <tr>
+        <td>Razão Social</td>
+        <td colspan="5">{{model.restaurante.razaoSocial}}</td>
+    </tr>
+    <tr>
+        <td>Nome Fantasia</td>
+        <td colspan="5">{{model.restaurante.nomeFantasia}}</td>
+    </tr>
+    <tr>
+        <td>CNPJ</td>
+        <td>{{model.restaurante.cnpj}}</td>
+        <td>Inscrição Estadual</td>
+        <td>{{model.restaurante.inscricaoEstadual}}</td>
+        <td>Inscriçao Munic.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Endereço</td>
+        <td>{{model.endereco.logradouro}}</td>
+        <td>Numero</td>
+        <td>{{model.endereco.numero}}</td>
+        <td>Bairro.</td>
+        <td>{{model.endereco.bairro}}</td>
+    </tr>
+    <tr>
+        <td>Complem.</td>
+        <td>{{model.endereco.complemento}}</td>
+        <td>CEP</td>
+        <td>{{model.endereco.cep}}</td>
+        <td>Cidade.</td>
+        <td>{{model.endereco.cidade}}</td>
+    </tr>
+    <tr>
+        <td>Estado.</td>
+        <td>{{model.endereco.estado}}</td>
+        <td>Email</td>
+        <td>{{model.restaurante.comercialEmail}}</td>
+        <td>Cod Analyzer.</td>
+        <td></td>
+    </tr>
+    <tr class="gray">
+        <td colspan="6">Endereço de Cobrança</td>
+    </tr>
+    <tr>
+        <td>Endereço</td>
+        <td>{{model.enderecoCobranca.logradouro}}</td>
+        <td>Numero</td>
+        <td>{{model.enderecoCobranca.numero}}</td>
+        <td>Bairro.</td>
+        <td>{{model.enderecoCobranca.bairro}}</td>
+    </tr>
+    <tr>
+        <td>Complem.</td>
+        <td>{{model.enderecoCobranca.complemento}}</td>
+        <td>CEP</td>
+        <td>{{model.enderecoCobranca.cep}}</td>
+        <td>Cidade.</td>
+        <td>{{model.enderecoCobranca.cidade}}</td>
+    </tr>
+    <tr>
+        <td>Estado.</td>
+        <td colspan="5">{{model.enderecoCobranca.estado}}</td>
+      
+    </tr>
+    <tr class="gray">
+        <td colspan="6">Dados Bancários para pagamento de Trocas</td>
+    </tr>
+    <tr>
+        <td colspan="3">Banco {{model.restautante.financeiroBanco}}</td>
+        <td colspan="3">
+            (  ) Nota Fiscal
+            ( X ) Nota de Débito
+        </td>
+    </tr>
+    <tr>
+        <td> (  ) Boleto ( X ) Depósito </td>
+        <td> Prazo: 30 dias fora o mês </td>
+        <td> Agência: </td>
+        <td>{{model.restaurante.financeiroAgencia}}</td>
+        <td> Conta Corrente: </td>
+        <td>{{model.restaurante.financeiroConta}}</td>
+    </tr>
+    <tr class="gray"><td colspan="6"> Dados do Contato Financeiro </td></tr>
+    <tr>
+        <td>Nome</td>
+        <td colspan="5">{{model.restaurante.financeiroNome}}</td>
+    </tr>
+    <tr>
+        <td colspan="3">Telefone: {{model.restaurante.financeiroTelefone}}</td>
+        <td colspan="3">Email {{model.restaurante.financeiroEmail}}</td>
+    </tr>
+
+
+    <tr class="gray"><td colspan="6"> Dados do Contato Comercial</td></tr>
+    <tr>
+        <td>Nome</td>
+        <td colspan="5">{{model.restaurante.comercialNome}}</td>
+    </tr>
+    <tr>
+
+        <td colspan="3">Telefone: {{model.restaurante.comercialTelefone}}</td>
+        <td colspan="3">Email: {{model.restaurante.comercialEmail}}</td>
+    </tr>
+
+</table>

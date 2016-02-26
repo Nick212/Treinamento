@@ -1,0 +1,56 @@
+﻿@model GetPostModel.Models.Pessoa
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Enviando Dados para a camada de Visualização (View)</h2>
+<hr />
+
+<fieldset>
+    <legend>Renderizados com a Função ViewData</legend>
+    <p>@ViewData["PessoaId"]</p>
+    <p>@ViewData["Nome"]</p>
+    <p>@ViewData["Twitter"]</p>
+</fieldset>
+
+<fieldset>
+    <legend>Elementos Renderizados com a Função ViewBag</legend>
+    <p>@ViewBag.PessoaId</p>
+    <p>@ViewBag.Nome</p>
+    <p>@ViewBag.Twitter</p>
+</fieldset>
+
+<fieldset>
+    <legend>Elementos Renderizados com a View Tipada</legend>
+    <p>@Model.PessoaId</p>
+    <p>@Model.Nome</p>
+    <p>@Model.Twitter</p>
+</fieldset>
+
+<form action="Home/Lista" method="post">
+    <fieldset>
+        <legend>Formulário de Pessoas</legend>
+        <div class="form-group">
+            <div>
+                <label for="PessoaId">Código</label>
+            </div>
+            <div>
+                <input class="form-control" type="number" value="@Model.PessoaId" id="PessoaId" name="PessoaId" />
+            </div>
+            <div>
+                <label for="Nome">Nome</label>
+            </div>
+            <div>
+                <input class="form-control" type="text" value="@Model.Nome" id="Nome" name="Nome" />
+            </div>
+            <div>
+                <label for="Twitter">Rede Social</label>
+            </div>
+            <div>
+                <input class="form-control" type="text" value="@Model.Twitter" id="Twitter" name="Twitter" />
+            </div>
+        </div>
+    </fieldset>
+
+</form>
+

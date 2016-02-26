@@ -1,0 +1,3 @@
+C:\Users\Nicolas\Documents\GitHub\Treinamento\Treinamento\DESIGN PATTERN\CursoDesignPatterns\CursoDesignPatterns\bin\Debug\CursoDesignPatterns.exe.config
+C:\Users\Nicolas\Documents\GitHub\Treinamento\Treinamento\DESIGN PATTERN\CursoDesignPatterns\CursoDesignPatterns\obj\Debug\CursoDesignPatterns.exe
+C:\Users\Nicolas\Documents\GitHub\Treinamento\Treinamento\DESIGN PATTERN\CursoDesignPatterns\CursoDesignPatterns\obj\Debug\CursoDesignPatterns.pdb
