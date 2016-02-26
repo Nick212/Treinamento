@@ -1,0 +1,6 @@
+F:\Workspace_GIT\Treinamento\Treinamento\XML\TesteXml\TesteXml\bin\Debug\TesteXml.exe.config
+F:\Workspace_GIT\Treinamento\Treinamento\XML\TesteXml\TesteXml\bin\Debug\TesteXml.exe
+F:\Workspace_GIT\Treinamento\Treinamento\XML\TesteXml\TesteXml\bin\Debug\TesteXml.pdb
+F:\Workspace_GIT\Treinamento\Treinamento\XML\TesteXml\TesteXml\obj\Debug\TesteXml.csprojResolveAssemblyReference.cache
+F:\Workspace_GIT\Treinamento\Treinamento\XML\TesteXml\TesteXml\obj\Debug\TesteXml.exe
+F:\Workspace_GIT\Treinamento\Treinamento\XML\TesteXml\TesteXml\obj\Debug\TesteXml.pdb
